@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { BookOpenIcon, Code2Icon, LayoutDashboardIcon, MailIcon, MenuIcon, XIcon } from "lucide-react";
+import { BookOpenIcon, Code2Icon, LayoutDashboardIcon, MailIcon, MenuIcon, XIcon, MessageCircleCode } from "lucide-react";
 import { UserButton } from "@clerk/clerk-react";
 import ThemeSelector from "./ThemeSelector";
 import { useState } from "react";

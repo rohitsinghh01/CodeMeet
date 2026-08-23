@@ -39,8 +39,8 @@ export const useSessionById = (id) => {
     queryKey: ["session", id],
     queryFn: () => sessionApi.getSessionById(id),
     enabled: !!id,
-    refetchInterval: 5000, 
-    retry: false, 
+    refetchInterval: 5000, // refetch every 5 seconds to detect session status changes
+    retry: false, // don't retry on error
     onError: (error) => {
       if (error.response?.status === 403) {
         toast.error("You are not invited to this session");

@@ -1,10 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="demonprobably">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo-black.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>CodeMeet</title>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme") || "forest";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
