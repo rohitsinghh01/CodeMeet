@@ -2,8 +2,7 @@ import { Link } from "react-router";
 import {
   ArrowRightIcon,
   CheckIcon,
-  Code2Icon,
-  SparklesIcon,
+  MessageCircleCode,
   UsersIcon,
   VideoIcon,
   ZapIcon,
@@ -23,7 +22,7 @@ function HomePage() {
             className="flex items-center gap-3 hover:scale-105 transition-transform duration-200"
           >
             <div className="size-10 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center shadow-lg">
-              <Code2Icon className="size-6 text-white" />
+              <MessageCircleCode className="size-6 text-white" />
             </div>
 
             <div className="flex flex-col">
@@ -117,7 +116,7 @@ function HomePage() {
           {/* RIGHT IMAGE */}
           <img
             src="/hero.png"
-            alt="Remote Interview Platform"
+            alt="CodeMeet"
             className="w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl border-4 sm:border-8 border-primary/10 hover:scale-105 transition-transform duration-500"
           />
         </div>
@@ -153,7 +152,7 @@ function HomePage() {
           <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-base-300/50 hover:border-secondary/40">
             <div className="card-body items-center text-center p-6 sm:p-8">
               <div className="size-14 sm:size-16 bg-secondary/15 rounded-2xl flex items-center justify-center mb-4 shadow-md">
-                <Code2Icon className="size-7 sm:size-8 text-secondary" />
+                <MessageCircleCode className="size-7 sm:size-8 text-secondary" />
               </div>
               <h3 className="card-title text-base sm:text-lg">Live Code Editor</h3>
               <p className="text-sm sm:text-base text-base-content/70">
