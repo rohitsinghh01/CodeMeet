@@ -20,7 +20,7 @@ function Navbar() {
             className="group flex items-center gap-2 sm:gap-3 hover:scale-105 transition-transform duration-200"
           >
             <div className="size-9 sm:size-10 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent flex items-center justify-center shadow-lg animate-gradient">
-              <Code2Icon className="size-5 sm:size-6 text-white" />
+              <MessageCircleCode className="size-5 sm:size-6 text-white" />
             </div>
 
             <div className="flex flex-col">
