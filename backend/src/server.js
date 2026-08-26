@@ -1,5 +1,4 @@
 import express from "express";
-import path from "path";
 import cors from "cors";
 import { serve } from "inngest/express";
 import { clerkMiddleware } from "@clerk/express";
@@ -11,46 +10,60 @@ import { inngest, functions } from "./lib/inngest.js";
 import chatRoutes from "./routes/chatRoutes.js";
 import sessionRoutes from "./routes/sessionRoute.js";
 
-
 const app = express();
-const __dirname = path.resolve();
+
 
 app.use(express.json());
-app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
+
+app.use(
+  cors({
+    origin: ENV.CLIENT_URL,
+    credentials: true,
+  })
+);
+
 app.use(clerkMiddleware());
 
 
-app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use(
+  "/api/inngest",
+  serve({
+    client: inngest,
+    functions,
+  })
+);
+
 app.use("/api/chat", chatRoutes);
 app.use("/api/sessions", sessionRoutes);
 
 
-app.get("/health", (req, res) => {
-  res.status(200).json({ msg: "api is up and running" });
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "CodeMeet backend API is running",
+  });
 });
 
 
-if (ENV.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-  app.get("/{*any}", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "API is up and running",
   });
-}
-
-
+});
 
 const startServer = async () => {
   try {
-
     await connectDB();
+
     const PORT = process.env.PORT || ENV.PORT || 3000;
+
     app.listen(PORT, () => {
-      console.log("Server is running on port:", PORT);
-      console.log("Health check available at /health");
+      console.log(`Server is running on port ${PORT}`);
+      console.log(`Health check: /health`);
     });
   } catch (error) {
-    console.error("Error starting the server", error);
+    console.error("Error starting the server:", error);
     process.exit(1);
   }
 };
